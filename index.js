@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
