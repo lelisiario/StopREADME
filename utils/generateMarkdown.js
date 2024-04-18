@@ -1,50 +1,30 @@
-// Function to return a license badge based on which license is passed in
-function renderLicenseBadge(license) {
-  if (license === "MIT") {
-    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-  } else if (license === "GNU GPLv3") {
-    return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-  } else if (license === "Apache 2.0") {
-    return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-  } else {
-    return "";
-  }
-}
-
-// Function to return the license link
-function renderLicenseLink(license) {
-  if (license === "MIT") {
-    return "[MIT License](https://opensource.org/licenses/MIT)";
-  } else if (license === "GNU GPLv3") {
-    return "[GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0)";
-  } else if (license === "Apache 2.0") {
-    return "[Apache 2.0 License](https://opensource.org/licenses/Apache-2.0)";
-  } else {
-    return "";
-  }
-}
-
-// Function to return the license section of README
+// Function to return a license section
 function renderLicenseSection(license) {
-  if (license !== "None") {
+  if (license !== "none") {
     return `## License
-
-This project is licensed under the terms of the ${license}. For more details, please see the [${license}](#license) section above.`;
-  } else {
-    return "";
+  
+This project is licensed under the ${license} license. See the [LICENSE](LICENSE) file for details.`;
   }
+  return "";
+}
+// Function to return a license badge
+function renderLicenseBadge(license) {
+  if (license !== "none") {
+    return `![GitHub license](https://github.com/drknzz/GitHub-Achievements)`;
+  }
+  return "";
 }
 
- 
 // Function to generate markdown for README
 function generateMarkdown(data) {
   const licenseBadge = renderLicenseBadge(data.license);
-  const licenseLink = renderLicenseLink(data.license);
   const licenseSection = renderLicenseSection(data.license);
 
   return `# ${data.title}
 
 ${licenseBadge}
+
+${licenseSection}
 
 ## Description
 
@@ -81,10 +61,8 @@ ${data.tests}
 
 ## Questions
 
-For questions or feedback, please contact [${data.username}](https://github.com/${data.username}) or email [${data.email}](${data.email}).
+For questions or feedback, please contact [${data.lelisiario}](https://github.com/${data.lelisiario})
 `;
 }
 
 module.exports = generateMarkdown;
-
-

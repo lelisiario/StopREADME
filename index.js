@@ -3,6 +3,25 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
 const generateMarkdown = require("./utils/generateMarkdown");
+
+//Writing the ReadME file
+function writeToFile(generatedReadme, data) {
+  try {
+    fs.writeFileSync(generatedReadme, data);
+    console.log(`${generatedReadme} generated successfully!`);
+  } catch (err) {
+    console.error(`Error writing ${generatedReadme}:`, err);
+  }
+}
+
+//initiallizing the app
+function init() {
+  inquirer.prompt(questions).then((responses) => {
+    console.log("Creating Professional README.md File...");
+    writeToFile("generatedReadme", generateMarkdown({ ...responses }));
+  });
+}
+
 //Questions for User
 const questions = [
     {
@@ -11,54 +30,53 @@ const questions = [
       message: "What is the title of your project?",
     },
     {
-      type: "input",
-      name: "repoLink",
-      message: "What is the link to your repo?",
-    },
-    {
         type: "input",
-        name: "User Story",
-        message: "Provide a User Story here",
-    },
-    {
-        type: "input",
-        name: "Acceptance Criteria",
-        message: "Provide Acceptance Criteria here",
-    },
-    {
-        type: "input",
-        name: "What does your project do?",
+        name: "projectDescription",
         message: "Provide a description of your project here",
     },
     {
         type: "input",
-        name: "Installation",
+        name: "installation",
         message: "Provide installation instructions here",
-    }
+    },
+    {
+    type: "input",
+    name: "usage",
+    message: "How is your product used?",
+  },
+  {
+      type: "input",
+      name: "license",
+      message: "Provide a license type here",
+  },
+  {
+      type: "input",
+      name: "contributors",
+      message: "Cite your sources and attributes here",
+  },
+  {
+      type: "input",
+      name: "tests",
+      message: "What tests have you done?",
+},
+{
+      type: "input",
+      name: "questions",
+      message: "Provide questions here",
+},
+{
+  type: "input",
+  name: "githubUsername",
+  message: "What is your GitHub username?",
+},
+{
+  type: "input",
+  name: "email",
+  message: "What is your email address?",
+},
   ];
   
-  // Prompt the user for input using inquirer
-  inquirer.prompt(questions).then((answers) => {
-    // Generate README content based on user input
-    const readmeContent = generateMarkdown(answers);
 
-    // Write the generated README content to a file named 'README.md'
-    writeToFile("README.md", readmeContent);
-  }).then((answers) => {
-    console.log(answers);
-  })
-
-// Function to write README file
-function writeToFile(fileName, data) {
-  // Use fs.writeFile to write the README file
-  fs.writeFile(fileName, data, (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(`${fileName} generated successfully!`);
-  });
-}
 
 // Function call to initialize app
 init();
