@@ -7,7 +7,9 @@ This project is licensed under the None license. See the [LICENSE](LICENSE) file
   
   ## Description
   
-  undefined
+AS A developer
+I WANT a README generator
+SO THAT I can quickly create a professional README for a new project
   
   ## Table of Contents
   
@@ -28,7 +30,7 @@ This project is licensed under the None license. See the [LICENSE](LICENSE) file
   
   ## Usage
   
-  To create professional ReadMe's very quickly.
+LINK TO VIDEO DEMONSTRATION: https://drive.google.com/file/d/1C5m-MxeZMoQA8Sp5NUM_9PuVIIJZb6c_/view
   
   ## Contributing
   
