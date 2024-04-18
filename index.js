@@ -45,9 +45,10 @@ const questions = [
     message: "How is your product used?",
   },
   {
-      type: "input",
-      name: "license",
-      message: "Provide a license type here",
+    type: "list",
+    name: "license",
+    message: "Choose a license for your project:",
+    choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3-Clause", "None"],
   },
   {
       type: "input",
